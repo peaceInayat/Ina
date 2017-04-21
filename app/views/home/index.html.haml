@@ -1,0 +1,18 @@
+.container
+  %h1 Listing Customers
+  %table.table.table-striped
+    %thead
+      %tr
+        %th customer
+        %th Email
+        %th Phone No
+        %th Category
+        %th
+    %tbody
+      - @customers.each do |customer|
+        %tr
+          %td= customer.name
+          %td= customer.email_id
+          %td= customer.phone_no
+          %td= customer.category.name
+          %td= link_to 'Show', home_show_query_path(customer)

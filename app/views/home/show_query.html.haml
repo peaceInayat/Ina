@@ -1,0 +1,29 @@
+.container{style: "margin-top:2%;"}
+  = image_tag @customer.image.url(:medium)
+  %br/
+  %br/
+  %br/
+  %p
+    %strong Name:
+    = @customer.name
+
+  %br/
+  %p
+    %strong Email Id:
+    = @customer.email_id
+
+  %br/
+  %p
+    %strong Mobile Number:
+    = @customer.phone_no
+
+  %br/
+  %p
+    %strong Query Category:
+    = @customer.category.name
+
+  %br/
+  %p
+    %strong Description:
+    = @customer.to_get_done
+

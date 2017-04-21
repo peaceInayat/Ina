@@ -1,0 +1,25 @@
+.container{style: "margin-top:2%;background-image: url('/assets/bg.jpg');background-repeat: no-repeat;background-size: 100% 100%;"}
+  %div{style: "padding:10%;"}
+    = simple_form_for @customer, url: home_register_customer_query_path do |f|
+
+
+      .form-group
+        = f.input :name, input_html: { class: 'form-control' }
+
+      .form-group
+        = f.input :email_id, input_html: { class: 'form-control' }
+
+      .form-group
+        = f.input :phone_no, input_html: { class: 'form-control' }
+
+
+      .form-group
+        = f.collection_select :category_id, Category.all, :id, :name, {promt: "Choose a category" }, input_html: { class: 'form-control' }
+
+      .form-group
+        = f.input :to_get_done, label: "Description", input_html: {rows:5, class: 'form-control' }
+
+      .form-group
+        = f.input :image, input_html: { class: 'form-control' }
+
+      = f.button :submit, value: 'Submit', class: "btn btn-primary"

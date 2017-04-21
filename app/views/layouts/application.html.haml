@@ -1,0 +1,66 @@
+!!! 5
+%html
+%head
+  %title INA Associates
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+
+%body
+
+  %nav.navbar.navbar-default{style: "margin-bottom: 0px; background-color: currentcolor;"}
+    .container
+      / Brand and toggle get grouped for better mobile display
+      .navbar-header
+        %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        .navbar-brand= link_to "INA Associates", root_path
+
+      .collapse.navbar-collapse
+
+        - if user_signed_in?
+
+          %ul.nav.navbar-nav
+            %li= link_to "All", root_path
+            - Category.all.each do |category|
+              %li= link_to category.name, root_path(category: category.name)
+
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Account", edit_user_registration_path
+
+
+
+        - else
+          %ul.nav.navbar-nav.navbar-left
+            %li= link_to "Write to Us", home_write_to_us_path
+
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Admin Login", new_user_session_path
+
+          %ul.nav.navbar-nav.navbar-right
+            %li= link_to "Contact Us", home_contact_us_path
+
+
+  = yield
+
+:css
+
+  html{
+    height: 100%;
+  }
+  body {
+    min-height: 100%;
+  }
+  .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+  }
+
+  .navbar-default .navbar-nav > li > a:hover {
+    color: #ccc;
+  }
