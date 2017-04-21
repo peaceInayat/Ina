@@ -1,4 +1,4 @@
-.container{style: "margin-top:2%;background-image: url('/assets/bg.jpg');background-repeat: no-repeat;background-size: 100% 100%;"}
+.container{style: "margin-top:2%;background-image: url(#{image_path('bg.jpg')});background-repeat: no-repeat;background-size: 100% 100%;"}
   %div{style: "padding:10%;"}
     = simple_form_for @customer, url: home_register_customer_query_path do |f|
 
