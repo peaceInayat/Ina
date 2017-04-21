@@ -1,7 +1,7 @@
 class Customer < ActiveRecord::Base
   belongs_to :category
 
-  has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :image, styles: { medium: "300x300>", large: "700x1200>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   validates_numericality_of :phone_no, :only_integer => true, :allow_nil => true, :message => "Enter proper mobile number"

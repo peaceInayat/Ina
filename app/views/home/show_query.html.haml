@@ -1,8 +1,4 @@
 .container{style: "margin-top:2%;"}
-  = image_tag @customer.image.url(:medium)
-  %br/
-  %br/
-  %br/
   %p
     %strong Name:
     = @customer.name
@@ -26,4 +22,12 @@
   %p
     %strong Description:
     = @customer.to_get_done
+
+
+  %br/
+  %br/
+  %br/
+  = image_tag @customer.image.url(:large)
+  %br/
+  %br/
 
